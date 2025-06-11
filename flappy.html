@@ -1,14 +1,2 @@
-<canvas id=a width=300 height=150></canvas><script>
-c=a.getContext`2d`;y=75;v=0;t=0;setInterval(_=>{
-c.fillStyle="#000";c.fillRect(0,0,300,150);
-v+=.5;y+=v;t++;
-c.fillStyle="#fff";
-c.fillRect(10,y,15,15);
-x=300-t%180;
-h=50+Math.sin(t/30)*60;
-c.fillRect(x,0,15,h);
-c.fillRect(x,h+40,15,150);
-(y<h||y>h+40)&&x<30&&alert(t)
-},33);
-onclick=_=>v=-7
-</script>
+<canvas id=a width=300 height=150></canvas><script>c=a.getContext`2d`;y=75;v=0;t=0;p=[];setInterval(_=>{p.push({x:300,h:50+Math.sin(t/30)*60});t+=2.5},2500);setInterval(_=>{c.fillStyle="#000";c.fillRect(0,0,300,150);v+=.5;y+=v;c.fillStyle="#fff";c.fillRect(10,y,15,15);p.forEach(p=>{p.x-=2;c.fillRect(p.x,0,15,p.h);c.fillRect(p.x,p.h+40,15,150)});if(p[0]&&p[0].x<30&&(y< p[0].h || y > p[0].h + 40))alert(t)},33);onclick=_=>v=-4</script>
+
